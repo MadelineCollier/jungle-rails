@@ -9,7 +9,18 @@
   </div>
 
   <div class="panel panel-default products">
-  <h2>I worked!</h2>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @categories %>
+      </tbody>
+    </table>
+
   </div>
 
 </section>
