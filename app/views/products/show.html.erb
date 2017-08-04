@@ -26,6 +26,20 @@
       </div>
     </div>
 
+    <h2>Reviews</h2>
+    <div class="row">
+      <dl class="dl-vertical">
+        <% @product.reviews.each do |review| %>
+          <dt><%= review.user.email %> says:</dt>
+          <dd>"<%= review.description %>"</dd>
+          <dd>Rating: <%= review.rating %> Star(s)</dd>
+          <br>
+        <% end %>
+      </dl>
+    </div>
+
   </article>
 
 </section>
+
+
