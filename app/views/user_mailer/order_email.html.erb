@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Here is your order, <%= @order.email %></h1>
+    <br>
+    <br>
+    <% @order.line_items.each do |line_item| %>
+      <li><%= line_item.product.name %></li>
+    <% end %>
+      <li><%= @order.total %>
+    <br>
+    <p>Thanks for using Jungle, and have a great day!</p>
+  </body>
+</html>
