@@ -26,37 +26,41 @@
       </div>
     </div>
 
-    <h3>Leave a new review:</h3>
-    <div class="col-sm-8">
-      <%= form_for([@product, Review.new]) do |form| %>
+    <% if current_user %>
+      <h3>Leave a new review:</h3>
+      <div class="col-sm-8">
+        <%= form_for([@product, Review.new]) do |form| %>
 
-        <% if form.object.errors.any? %>
-          <div class="alert alert-danger">
-            <strong>The following errors prevented saving:</strong>
-            <ul>
-              <% form.object.errors.full_messages.each do |error| %>
-                <li><%= error %></li>
-              <% end %>
-            </ul>
+          <% if form.object.errors.any? %>
+            <div class="alert alert-danger">
+              <strong>The following errors prevented saving:</strong>
+              <ul>
+                <% form.object.errors.full_messages.each do |error| %>
+                  <li><%= error %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= form.label(:description) %>
+            <%= form.text_area :description, class: 'form-control'%>
+          </div>
+
+          <div class="form-group">
+            <%= form.label(:rating) %>
+            <%= form.select(:rating, [1, 2, 3, 4, 5])%>
+          </div>
+
+          <div class="actions">
+            <%= form.submit class: 'btn btn-primary'%>
           </div>
         <% end %>
-
-        <div class="form-group">
-          <%= form.label(:description) %>
-          <%= form.text_area :description, class: 'form-control'%>
-        </div>
-
-        <div class="form-group">
-          <%= form.label(:rating) %>
-          <%= form.select(:rating, [1, 2, 3, 4, 5])%>
-        </div>
-
-        <div class="actions">
-          <%= form.submit class: 'btn btn-primary'%>
-        </div>
-      <% end %>
-
+    <% else %>
       <br>
+      <h3>Please <%= link_to 'Login', '/login' %> to leave a review</h3>
+    <% end %>
+    <br>
 
       <h2>All Reviews</h2>
       <dl class="dl-horizontal">
