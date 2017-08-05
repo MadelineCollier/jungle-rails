@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-
   def show
     @order = Order.find(params[:id])
   end
@@ -69,5 +68,4 @@ class OrdersController < ApplicationController
     end
     total
   end
-
 end

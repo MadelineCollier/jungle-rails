@@ -1,5 +1,4 @@
 class CartsController < ApplicationController
-
   def show
   end
 
@@ -25,5 +24,4 @@ class CartsController < ApplicationController
 
     redirect_to :back
   end
-
 end
