@@ -60,7 +60,7 @@
 
       <h2>All Reviews</h2>
       <dl class="dl-horizontal">
-      <% @product.reviews.each do |review| %>
+      <% @product.reviews.order(created_at: :desc).each do |review| %>
         <dt><%= review.user.email %> says:</dt>
         <dd>"<%= review.description %>"</dd>
         <dt>Rating:</dt>
