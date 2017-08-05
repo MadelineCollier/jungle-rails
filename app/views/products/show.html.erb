@@ -68,7 +68,7 @@
         <dt><%= review.user.email %> says:</dt>
         <dd>"<%= review.description %>"</dd>
         <dt>Rating:</dt>
-        <dd><%= review.rating %> Star(s)</dd>
+        <dd><%= review.rating %>/5</dd>
         <% if current_user && review.user_id == current_user.id %>
           <dt></dt>
           <dd>
