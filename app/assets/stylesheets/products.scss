@@ -38,6 +38,9 @@ main section.categories-show {
         width: 100%;
         opacity: 0.3;
         transition: all 0.3s;
+        .item-sold-out {
+          display: none;
+        }
       }
 
       aside.price {
