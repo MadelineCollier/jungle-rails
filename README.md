@@ -1,7 +1,17 @@
+
 # Jungle
+A mini e-commerce application built during week 6 of Lighthouse Labs' 8-week Web Development Bootcamp. Introduced as an unfamiliar existing code-base with feature requests and bug fixes, to learn to navigate the Rails 4.2 framework.
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+Includes persistent data-storage with postgreSQL, carts, payments with stripe, and partitioned admin permissions.
 
+## Finished Product
+![Products Homepage](https://github.com/MadelineCollier/jungle-rails/blob/master/docs/Products%20Homepage.png?raw=true)
+![My Cart](https://github.com/MadelineCollier/jungle-rails/blob/master/docs/Cart.png?raw=true)
+![Payments with stripe](https://github.com/MadelineCollier/jungle-rails/blob/master/docs/Payments%20With%20Stripe.png?raw=true)
+![Search products by category](https://github.com/MadelineCollier/jungle-rails/blob/master/docs/Search%20Products%20By%20Category%20-%20Furniture.png?raw=true)
+![Admin Categories](https://github.com/MadelineCollier/jungle-rails/blob/master/docs/Admin:Categories.png?raw=true)
+![Admin Products](https://github.com/MadelineCollier/jungle-rails/blob/master/docs/Admin:Products.png?raw=true)
+![Sign Up](https://github.com/MadelineCollier/jungle-rails/blob/master/docs/Sign%20Up.png?raw=true)
 
 ## Setup
 
