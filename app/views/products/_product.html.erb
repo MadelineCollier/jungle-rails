@@ -10,7 +10,7 @@
   </p>
   <div class="avg-rating">
     <% if product.reviews.count > 0 %>
-      <%= "Rated #{(number_with_precision product.reviews.average(:rating), precision: 0 )}/5 from #{product.reviews.count} reviews" %>
+      <%= product.rating %>
     <% else %>
       <p>No Reviews yet</p>
     <% end %>

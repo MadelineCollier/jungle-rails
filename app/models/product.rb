@@ -12,4 +12,12 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
+  def average_review
+    reviews.average(:rating).round
+  end
+
+  def rating
+    "Rated #{average_review}/5 from #{reviews.count} reviews"
+  end
+
 end
