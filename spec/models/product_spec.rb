@@ -43,4 +43,14 @@ RSpec.describe Product, type: :model do
       end
     end
   end
+
+  describe '#rating' do
+    context 'given the only review available is a 2' do
+      it 'should return a rating that is reasonably formatted' do
+        expect(subject.rating).to eq(
+          "Rated 2/5 from 1 reviews"
+        )
+      end
+    end
+  end
 end
