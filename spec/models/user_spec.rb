@@ -13,5 +13,16 @@ RSpec.describe User, type: :model do
       expect(@user).to be_valid
     end
 
+    it "is not valid without a first_name" do
+      @user = User.new(
+        first_name: nil,
+        last_name: "last-name",
+        email: "email@email.com",
+        password: "password",
+        password_confirmation: "password"
+      )
+      expect(@user).to_not be_valid
+      expect{ raise StandardError, "can't be blank" }.to raise_error("can't be blank")
+    end
   end
 end
