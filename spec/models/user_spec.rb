@@ -58,7 +58,7 @@ RSpec.describe User, type: :model do
         password_confirmation: nil
       )
       expect(@user).to_not be_valid
-      expect(@user.errors.full_messages).to eql  ["Password can't be blank"]
+      expect(@user.errors.full_messages).to eql  ["Password can't be blank", "Password is too short (minimum is 3 characters)"]
     end
 
     it "is not valid when password and password_confirmation do not match" do
