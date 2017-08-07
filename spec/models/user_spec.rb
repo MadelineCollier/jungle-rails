@@ -22,7 +22,7 @@ RSpec.describe User, type: :model do
         password_confirmation: "password"
       )
       expect(@user).to_not be_valid
-      expect{ raise StandardError, "can't be blank" }.to raise_error("can't be blank")
+      expect(@user.errors.full_messages).to eql  ["First name can't be blank"]
     end
 
     it "is not valid without a last_name" do
@@ -34,7 +34,7 @@ RSpec.describe User, type: :model do
         password_confirmation: "password"
       )
       expect(@user).to_not be_valid
-      expect{ raise StandardError, "can't be blank" }.to raise_error("can't be blank")
+      expect(@user.errors.full_messages).to eql  ["Last name can't be blank"]
     end
 
     it "is not valid without an email" do
@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
         password_confirmation: "password"
       )
       expect(@user).to_not be_valid
-      expect{ raise StandardError, "can't be blank" }.to raise_error("can't be blank")
+      expect(@user.errors.full_messages).to eql  ["Email can't be blank"]
     end
 
     it "is not valid when both password and password_confirmation are empty" do
@@ -58,7 +58,7 @@ RSpec.describe User, type: :model do
         password_confirmation: nil
       )
       expect(@user).to_not be_valid
-      expect{ raise StandardError, "can't be blank" }.to raise_error("can't be blank")
+      expect(@user.errors.full_messages).to eql  ["Password can't be blank"]
     end
 
     it "is not valid when password and password_confirmation do not match" do
