@@ -138,5 +138,16 @@ RSpec.describe User, type: :model do
       )
       expect(@user.authenticate_with_credentials("email@email.com", "123")).to eql nil
     end
+
+    it "is valid when user email has leading/trailing whitespace" do
+      @user = User.create!(
+        first_name: "first-name",
+        last_name: "last-name",
+        email: "email@email.com",
+        password: "12345",
+        password_confirmation: "12345"
+      )
+      expect(@user.authenticate_with_credentials("  email@email.com  ", "12345")).to eql @user
+    end
   end
 end
