@@ -48,5 +48,17 @@ RSpec.describe User, type: :model do
       expect(@user).to_not be_valid
       expect{ raise StandardError, "can't be blank" }.to raise_error("can't be blank")
     end
+
+    it "is not valid when both password and password_confirmation are empty" do
+      @user = User.new(
+        first_name: "first-name",
+        last_name: "last-name",
+        email: "email@email.com",
+        password: nil,
+        password_confirmation: nil
+      )
+      expect(@user).to_not be_valid
+      expect{ raise StandardError, "can't be blank" }.to raise_error("can't be blank")
+    end
   end
 end
