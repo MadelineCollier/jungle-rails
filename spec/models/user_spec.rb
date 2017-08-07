@@ -22,7 +22,7 @@ RSpec.describe User, type: :model do
         password_confirmation: "password"
       )
       expect(@user).to_not be_valid
-      expect(@user.errors.full_messages).to eql  ["First name can't be blank"]
+      expect(@user.errors.full_messages).to eql ["First name can't be blank"]
     end
 
     it "is not valid without a last_name" do
@@ -34,7 +34,7 @@ RSpec.describe User, type: :model do
         password_confirmation: "password"
       )
       expect(@user).to_not be_valid
-      expect(@user.errors.full_messages).to eql  ["Last name can't be blank"]
+      expect(@user.errors.full_messages).to eql ["Last name can't be blank"]
     end
 
     it "is not valid without an email" do
@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
         password_confirmation: "password"
       )
       expect(@user).to_not be_valid
-      expect(@user.errors.full_messages).to eql  ["Email can't be blank"]
+      expect(@user.errors.full_messages).to eql ["Email can't be blank"]
     end
 
     it "is not valid when both password and password_confirmation are empty" do
@@ -58,7 +58,7 @@ RSpec.describe User, type: :model do
         password_confirmation: nil
       )
       expect(@user).to_not be_valid
-      expect(@user.errors.full_messages).to eql  ["Password can't be blank", "Password is too short (minimum is 3 characters)"]
+      expect(@user.errors.full_messages).to eql ["Password can't be blank", "Password is too short (minimum is 3 characters)"]
     end
 
     it "is not valid when password and password_confirmation do not match" do
@@ -70,7 +70,7 @@ RSpec.describe User, type: :model do
         password_confirmation: "12345"
       )
       expect(@user).to_not be_valid
-      expect(@user.errors.full_messages).to eql  ["Password confirmation doesn't match Password"]
+      expect(@user.errors.full_messages).to eql ["Password confirmation doesn't match Password"]
     end
 
     it "is not valid when email is already taken, case insensitive" do
@@ -89,7 +89,19 @@ RSpec.describe User, type: :model do
         password_confirmation: "12345"
       )
       expect(@user).to_not be_valid
-      expect(@user.errors.full_messages).to eql  ["Email has already been taken"]
+      expect(@user.errors.full_messages).to eql ["Email has already been taken"]
+    end
+
+    it "is not valid when password is less than 3 characters long" do
+      @user = User.new(
+        first_name: "first-name",
+        last_name: "last-name",
+        email: "email@email.com",
+        password: "ah",
+        password_confirmation: "ah"
+      )
+      expect(@user).to_not be_valid
+      expect(@user.errors.full_messages).to eql ["Password is too short (minimum is 3 characters)"]
     end
   end
 end
