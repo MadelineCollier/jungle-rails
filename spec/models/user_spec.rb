@@ -149,5 +149,16 @@ RSpec.describe User, type: :model do
       )
       expect(@user.authenticate_with_credentials("  email@email.com  ", "12345")).to eql @user
     end
+
+    it "is valid when user email is up/downcased incorrectly" do
+      @user = User.create!(
+        first_name: "first-name",
+        last_name: "last-name",
+        email: "email@EMAIL.com",
+        password: "12345",
+        password_confirmation: "12345"
+      )
+      expect(@user.authenticate_with_credentials("EMAIL@email.com", "12345")).to eql @user
+    end
   end
 end
