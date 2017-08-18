@@ -4,6 +4,8 @@ A mini e-commerce application built during week 6 of Lighthouse Labs' 8-week Web
 
 Includes persistent data-storage with postgreSQL, carts, payments with stripe, and partitioned admin permissions.
 
+Visit Jungle here: https://madelines-jungle-app.herokuapp.com/
+
 ## Finished Product
 ![Products Homepage](https://github.com/MadelineCollier/jungle-rails/blob/master/docs/Products%20Homepage.png?raw=true)
 ![My Cart](https://github.com/MadelineCollier/jungle-rails/blob/master/docs/Cart.png?raw=true)
